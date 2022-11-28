@@ -24,3 +24,8 @@ pip install django-extensions
 python manage.py runserver
 ```
 
+### MPTT 
+
+```
+pip install django-mptt
+```

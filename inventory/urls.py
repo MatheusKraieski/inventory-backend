@@ -19,14 +19,16 @@ from django.urls import path, include
 from rest_framework import routers
 from products.api import viewsets as productsviewsets
 from clients.api import viewsets as clientsviewsets
+from categories.api import viewsets as categoriesviewsets
 
 route = routers.DefaultRouter()
 route.register(r'products', productsviewsets.ProductViewSet, basename="products")
 route.register(r'clients', clientsviewsets.ClientViewSet, basename="clients")
-
+route.register(r'categories', categoriesviewsets.CategoriesViewSet, basename="categories")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(route.urls)),
     path('', include(route.urls)),
     path('', include(route.urls)),
 ]

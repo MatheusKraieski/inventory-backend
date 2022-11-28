@@ -18,12 +18,16 @@ from django.urls import path, include
 
 from rest_framework import routers
 from products.api import viewsets as productsviewsets
+from clients.api import viewsets as clientsviewsets
 
 route = routers.DefaultRouter()
 route.register(r'products', productsviewsets.ProductViewSet, basename="products")
 
+# route = routers.DefaultRouter()
+# route.register(r'clients', clientsviewsets.ClientViewSet, basename="client")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(route.urls)),
     path('', include(route.urls))
 ]

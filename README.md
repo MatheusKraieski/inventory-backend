@@ -12,13 +12,15 @@ pip install django djangorestframework
 python -m pip install Pillow
 ```
 
+### Extensions
+
+```
+pip install django-extensions
+```
+
 ### Run server
 
 ```
 python manage.py runserver
 ```
 
-### Run server - alternative
-```
-C:/Users/[nome do usuário]/AppData/Local/Programs/Python/Python310/python.exe c:/Users/[nome do usuário]/Documents/GitHub/inventory-frontend/api/manage.py runserver
-```

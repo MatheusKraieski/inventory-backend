@@ -22,12 +22,11 @@ from clients.api import viewsets as clientsviewsets
 
 route = routers.DefaultRouter()
 route.register(r'products', productsviewsets.ProductViewSet, basename="products")
+route.register(r'clients', clientsviewsets.ClientViewSet, basename="clients")
 
-# route = routers.DefaultRouter()
-# route.register(r'clients', clientsviewsets.ClientViewSet, basename="client")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(route.urls)),
-    path('', include(route.urls))
+    path('', include(route.urls)),
 ]

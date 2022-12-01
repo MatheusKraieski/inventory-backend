@@ -13,4 +13,5 @@ class Products(models.Model):
     inventory_number = models.DecimalField(decimal_places=2, max_digits=12, default=100)
     minimum_amount = models.DecimalField(decimal_places=2, max_digits=12, default=100)
     image_product = models.ImageField(max_length=100, null=True, blank=True)
+    favorite = models.BooleanField(default=False)
 

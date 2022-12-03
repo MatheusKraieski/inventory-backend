@@ -29,3 +29,13 @@ python manage.py runserver
 ```
 pip install django-mptt
 ```
+
+### Heroku
+```
+pip install django-heroku
+```
+
+### Gunicorn
+```
+pip install gunicorn
+```

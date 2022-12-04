@@ -4,11 +4,10 @@ from uuid import uuid4
 
 # Create your models here.
 def upload_image_product(self, filename):
-    return f"{self.id_product}-{filename}"
+    return f"{self.pk}-{filename}"
 
 
 class Products(models.Model):
-    id_product = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(max_length=255)
     price = models.DecimalField(decimal_places=2, max_digits=12, default=100)
     category = models.CharField(max_length=255)

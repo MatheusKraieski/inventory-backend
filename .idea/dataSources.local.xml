@@ -6,5 +6,28 @@
       <auth-provider>no-auth</auth-provider>
       <schema-mapping />
     </data-source>
+    <data-source name="postgres://julebfngayqvgd:ce6cb26c56566fe5799202a780cd66a1540742420b4f3373e1fd4e3280a28d2f@ec2-34-198-186-145.compute-1.amazonaws.com:5432/dag37rd6h019s9" uuid="b5eac729-c478-460d-ad6f-62f1c677a6e5">
+      <database-info product="PostgreSQL" version="14.6 (Ubuntu 14.6-1.pgdg20.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="14.6" exact-driver-version="42.5">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>julebfngayqvgd</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="dag37rd6h019s9">
+              <node kind="schema">
+                <name qname="@" />
+                <name qname="heroku_ext" />
+              </node>
+            </node>
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>

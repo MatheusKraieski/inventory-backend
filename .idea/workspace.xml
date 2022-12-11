@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c93e0c53-108e-4dad-a7e9-d215dad15785" name="Changes" comment="">
+    <list default="true" id="c93e0c53-108e-4dad-a7e9-d215dad15785" name="Changes" comment="chore: update migrates">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5/storage_v2/_src_/database/dag37rd6h019s9.rLRLTw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5/storage_v2/_src_/database/dag37rd6h019s9.rLRLTw/schema/heroku_ext.Rm4jrA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5/storage_v2/_src_/database/dag37rd6h019s9.rLRLTw/schema/heroku_ext.Rm4jrA.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5/storage_v2/_src_/database/dag37rd6h019s9.rLRLTw/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5/storage_v2/_src_/database/dag37rd6h019s9.rLRLTw/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/b5eac729-c478-460d-ad6f-62f1c677a6e5/storage_v2/_src_/database/dag37rd6h019s9.rLRLTw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/api/viewsets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/line_items/api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/line_items/api/viewsets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/api/viewsets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirement.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,21 +47,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Matheus/Documents/GitHub/inventory-backend/venv/Scripts/python.exe",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Matheus\Documents\GitHub\inventory-backend\orders" />
+      <recent name="C:\Users\Matheus\Documents\GitHub\inventory-backend\line_items" />
+      <recent name="C:\Users\Matheus\Documents\GitHub\inventory-backend\cart\api" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.inventory">
+    <configuration name="lol" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="inventory" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lol.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="inventory" type="Python.DjangoServer" factoryName="Django server">
       <module name="inventory" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="inventory.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -53,6 +116,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.lol" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,8 +134,82 @@
       <workItem from="1669557722085" duration="92000" />
       <workItem from="1669589755320" duration="804000" />
       <workItem from="1670066505955" duration="2238000" />
-      <workItem from="1670068822388" duration="4493000" />
+      <workItem from="1670068822388" duration="9296000" />
+      <workItem from="1670114481494" duration="1585000" />
+      <workItem from="1670122730606" duration="3993000" />
+      <workItem from="1670756637507" duration="4681000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: commit">
+      <created>1670086073454</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670086073454</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore: add runtime.txt">
+      <created>1670086613226</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670086613226</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore: change settings.py">
+      <created>1670087090243</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670087090243</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore: fix requirements.txt name">
+      <created>1670087243010</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670087243010</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: delete runtime.txt">
+      <created>1670087292142</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670087292142</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chore: delete runtime.txt">
+      <created>1670114228280</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670114228280</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: delete runtime.txt">
+      <created>1670114505626</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670114505626</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chore: add sqlite db">
+      <created>1670123088643</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670123088643</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: update migrates">
+      <created>1670125245263</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670125245263</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: update migrates">
+      <created>1670125904504</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670125904504</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,5 +225,29 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: commit" />
+    <MESSAGE value="chore: add runtime.txt" />
+    <MESSAGE value="chore: change settings.py" />
+    <MESSAGE value="chore: fix requirements.txt name" />
+    <MESSAGE value="chore: delete runtime.txt" />
+    <MESSAGE value="chore: add sqlite db" />
+    <MESSAGE value="chore: update migrates" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update migrates" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lol.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/inventory_backend$lol.coverage" NAME="lol Coverage Results" MODIFIED="1670124990508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

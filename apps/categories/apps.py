@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LineItemsConfig(AppConfig):
+class CategoriesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'line_items'
+    name = 'apps.categories'

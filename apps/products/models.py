@@ -7,7 +7,7 @@ def upload_image_product(self, filename):
     return f"{self.pk}-{filename}"
 
 
-class Products(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(decimal_places=2, max_digits=12, default=100)
     category = models.CharField(max_length=255)

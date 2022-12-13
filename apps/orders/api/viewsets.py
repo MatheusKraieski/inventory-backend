@@ -1,7 +1,8 @@
-from rest_framework import viewsets
-from apps.orders.api import serializers
-from apps.orders import models
-#
-# class LineItemViewSet(viewsets.ModelViewSet):
-#     serializer_class = serializers.LineItemSerializer
-#     queryset = models.LineItem.objects.all()
+from apps.orders.models import Order
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+class Orders(APIView):
+    def get(self, request):
+        orders = Order.objects.values()
+        return Response(orders, 200)

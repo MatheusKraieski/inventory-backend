@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from apps.clients import models
+from apps.line_items import models
 
-# class LineItemSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = models.LineItem
-#         fields = '__all__'
+
+class LineItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.LineItem
+        fields = '__all__'

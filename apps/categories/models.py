@@ -3,7 +3,7 @@ from mptt.models import TreeForeignKey
 
 
 # Create your models here.
-class Categories(models.Model):
+class Category(models.Model):
     name = models.CharField('nome', max_length=100, unique=True)
     parent = TreeForeignKey(
         'self',

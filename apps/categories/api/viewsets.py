@@ -1,8 +1,10 @@
 from rest_framework import viewsets
 from apps.categories.api import serializers
-from apps.categories import models
+from apps.categories.models import Category
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-
-class CategoriesViewSet(viewsets.ModelViewSet):
-    serializer_class = serializers.CategoriesSerializer
-    queryset = models.Categories.objects.all()
+class CategoryView(APIView):
+    def get(self, request):
+        categories = Category.objects.values()
+        return Response(categories, 200)

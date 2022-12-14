@@ -1,8 +1,9 @@
-from rest_framework import viewsets
-from apps.products.api import serializers
-from apps.products import models
+from apps.products.models import Product
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
-class ProductViewSet(viewsets.ModelViewSet):
-    serializer_class = serializers.ProductSerializer
-    queryset = models.Product.objects.all()
+class ProductList(APIView):
+    def get(self, request):
+        products = Product.objects.values()
+        return Response(products, 200)

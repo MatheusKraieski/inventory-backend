@@ -1,10 +1,9 @@
 from django.db import models
-from mptt.models import TreeForeignKey
 from mptt.models import MPTTModel, TreeForeignKey
 
 
 # Create your models here.
-class Category(models.Model):
+class Category(MPTTModel):
     name = models.CharField('nome', max_length=100, unique=True)
     parent = TreeForeignKey(
         'self',

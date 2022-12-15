@@ -9,7 +9,7 @@ class ProductSerializer:
             Product.objects.create(
                 name=request.data.get('name'),
                 price=request.data.get('price'),
-                category=request.data.get('category'),
+                category_id=request.data.get("category_id"),
                 cost=request.data.get('cost'),
                 promotion_price=request.data.get('promotion_price'),
                 inventory_number=request.data.get('inventory_number'),

@@ -20,3 +20,6 @@ class Category(MPTTModel):
     class Meta:
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
+
+    def __str__(self):
+        return self.name

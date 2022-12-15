@@ -12,3 +12,12 @@ class Product(models.Model):
     minimum_amount = models.DecimalField(decimal_places=2, max_digits=12)
     image_product = models.ImageField(max_length=100, null=True, blank=True, upload_to="uploads/products")
     favorite = models.BooleanField(default=False)
+
+
+    class Meta:
+        verbose_name = 'Produto'
+        verbose_name_plural = 'Produtos'
+
+    def __str__(self):
+        return self.name
+

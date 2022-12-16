@@ -13,7 +13,7 @@ class GetCurrentCart(APIView):
         except:
             cart = Cart.objects.create()
         serializer = CartSerializer(cart, context={'request': request})
-        return Response(serializer.data, 200)
+        return Response(serializer.data, 200) 
 
 
 class AddLineItemToCart(APIView):

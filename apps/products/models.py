@@ -9,7 +9,6 @@ class Product(models.Model):
     cost = models.DecimalField(max_digits=12, decimal_places=2,)
     inventory_number = models.DecimalField(decimal_places=2, max_digits=12)
     minimum_amount = models.DecimalField(decimal_places=2, max_digits=12)
-    image_product = models.ImageField(max_length=100, null=True, blank=True, upload_to="uploads/products")
     favorite = models.BooleanField(default=False)
 
 
@@ -20,3 +19,13 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+class ProductImage():
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images', verbose_name='produto')
+    image = models.ImageField('Imagem', upload_to='uploads/produtos', max_length=100, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Imagem'
+        verbose_name_plural = 'Imagens'
+
+    def __str__(self):
+        return 'imagem'

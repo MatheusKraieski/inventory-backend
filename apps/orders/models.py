@@ -6,52 +6,15 @@ from apps.clients.models import Client
 
 class Order(models.Model):
     PAYMENT_TYPE_CHOICES = (
-        (1, 'Boleto'),
+        (1, 'Dinheiro'),
         (2, 'Cartão de crédito'),
         (3, 'Cartão de débito'),
         (4, 'Pix'),
     )
 
-    PAYMENT_STATUS = (
-        (0, 'Pagamento não finalizado'),
-        (1, 'Pagamento autorizado'),
-        (2, 'Pagamento confirmado'),
-        (3, 'Pagamento negado'),
-        (10, 'Pagamento cancelado'),
-        (11, 'Devolvido'),
-        (12, 'Pendente'),
-        (13, 'Abortado'),
-        (20, 'Agendado'),
-        (21, 'Enviado'),
-        (22, 'Recebido'),
-    )
-
-    ORDER_STATUS = (
-        (0, 'Pagamento não finalizado'),
-        (1, 'Pagamento autorizado'),
-        (2, 'Pagamento confirmado'),
-        (3, 'Pagamento negado'),
-        (10, 'Pagamento cancelado'),
-        (11, 'Devolvido'),
-        (12, 'Pendente'),
-        (13, 'Abortado'),
-        (20, 'Agendado'),
-        (21, 'Enviado'),
-        (22, 'Recebido'),
-        (30, 'Gerando nota fiscal'),
-        (31, 'Enviado'),
-        (32, 'Entregue'),
-    )
-
-    FRETE_TYPE = (
-        (1, 'PAC'),
-        (2, 'SEDEX'),
-    )
-
+    
     ref = models.CharField(max_length=255, null=True, blank=True)
-    order_status = models.IntegerField('Status do pedido', choices=ORDER_STATUS, default=12)
     payment_type = models.IntegerField('Tipo', choices=PAYMENT_TYPE_CHOICES, default=1)
-    receipt = models.FileField('Nota Fiscal', upload_to='uploads/receipts', max_length=100, null=True, blank=True)
     total_amount_products = models.DecimalField('Total produtos', decimal_places=2, max_digits=12)
     total_amount_discount = models.DecimalField('Total desconto', decimal_places=2, max_digits=12)
     total_amount = models.DecimalField('Total', decimal_places=2, max_digits=12)

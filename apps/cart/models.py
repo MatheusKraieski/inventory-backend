@@ -2,16 +2,15 @@ from django.db import models
 
 
 class Cart(models.Model):
-    FRETE_TYPE = (
-        (1, 'Pac'),
-        (2, 'Sedex')
+    PAYMENT_TYPE = (
+        (1, 'Pix'),
+        (2, 'Cartão de Débito'),
+        (3, 'Cartão de Crédito'),
+        (4, 'Dinheiro')
     )
-    has_frete = models.BooleanField(default=False)
-    pac_value = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    pac_prazo = models.IntegerField(null=True, blank=True)
-    sedex_value = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    sedex_prazo = models.IntegerField(null=True, blank=True)
-    frete_type = models.IntegerField(choices=FRETE_TYPE, default=1)
+
+    
+    payment_type = models.IntegerField(choices=PAYMENT_TYPE, default=1, null=False)
 
     class Meta:
         verbose_name = 'Carrinho'
@@ -25,3 +24,7 @@ class Cart(models.Model):
 
     def line_items_quantity(self):
         return sum([line_item.quantity for line_item in self.line_items.all()])
+
+    def total_products(self):
+        return sum([line_item.total_products() for line_item in self.line_items.all()])
+    

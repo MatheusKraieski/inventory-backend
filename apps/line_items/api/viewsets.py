@@ -7,8 +7,8 @@ from rest_framework.response import Response
 
 class ClientList(APIView):
     def get(self, request):
-        line_tem = LineItem.objects.values()
-        return Response(line_tem, 200)
+        line_item = LineItem.objects.values()
+        return Response(line_item, 200)
 
     def post(self, request):    
         serializer = LineItemSerializer()

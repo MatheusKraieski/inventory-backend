@@ -1,6 +1,19 @@
 from apps.orders.models import Order
 
+
 class OrderSerializer:
+    def get_orders(self):
+        orders = Order.objects.all()
+        context = []
+        for order in orders:
+            order_dict = {
+                "ref": order.ref,
+                "payment_type": order.payment_type,
+                "line_items": order.line_items.values()
+            }
+            context.append(order_dict)
+        return context, 200
+
     def create_order(self, request, cart):
         try:
             order = Order.objects.create(

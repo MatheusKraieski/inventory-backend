@@ -6,12 +6,13 @@ from apps.cart.models import Cart
 
 
 class Orders(APIView):
+    serializer = OrderSerializer()
+
     def get(self, request):
-        orders = Order.objects.values()
-        return Response(orders, 200)
+        response, status = self.serializer.get_orders()
+        return Response(response, status)
 
     def post(self, request):
-        serializer = OrderSerializer()
         cart = Cart.objects.get(pk=request.data.get('cart_id'))
-        message, status = serializer.create_order(request, cart)
+        message, status = self.serializer.create_order(request, cart)
         return Response(message, status)

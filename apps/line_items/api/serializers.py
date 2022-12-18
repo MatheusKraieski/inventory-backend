@@ -3,15 +3,11 @@ from apps.line_items.models import LineItem
 
 
 class LineItemSerializer(serializers.ModelSerializer):
-    def add_item(self, request):
-        try:
-            LineItem.objects.create(
-                quantity=request.data.get('Quantity'),
-                cart=request.data.get('cart'),
-                order=request.data.get("order"),
-                product=request.data.get('product'),
-            )
-            return {'detail': 'item adicionado.'}, 201
-        except Exception as e:
-            print(e)
-            return {'detail': 'item não pode ser adicionado.'}, 400    
+    total_price = serializers.SerializerMethodField()
+
+    class Meta:
+        model = LineItem
+        fields = ['id', 'quantity', 'product', 'total_price']
+
+    def get_total_price(self, obj: LineItem):
+        return obj.total_price()

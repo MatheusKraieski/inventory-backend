@@ -8,4 +8,4 @@ class CartSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Cart
-        fields = ['id', 'line_items', 'has_frete', 'pac_value', 'pac_prazo', 'sedex_value', 'sedex_prazo', 'frete_type']
+        fields = ['id', 'line_items']

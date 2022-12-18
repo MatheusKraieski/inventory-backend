@@ -14,8 +14,8 @@ class LineItem(models.Model):
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
 
-    def total_products(self):
-        return self.product.price() * self.quantity
+    def total_price(self):
+        return self.product.price * self.quantity
     
     def __str__(self):
         return self.product.name

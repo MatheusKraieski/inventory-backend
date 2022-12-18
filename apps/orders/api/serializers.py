@@ -1,21 +1,21 @@
 from apps.line_items.api.serializers import LineItemSerializer
 from apps.orders.models import Order
+from typing import List
 
 
 class OrderSerializer:
     line_item_serializer = LineItemSerializer()
 
-    def get_orders(self):
-        orders = Order.objects.all()
-        context = []
+    def get_orders_dict(self, orders: List[Order]):
+        orders_dict = []
         for order in orders:
             order_dict = {
                 "ref": order.ref,
                 "payment_type": order.payment_type,
                 "line_items": self.line_item_serializer.get_line_items_dict(order.line_items.all())
             }
-            context.append(order_dict)
-        return context, 200
+            orders_dict.append(order_dict)
+        return {"orders": orders_dict}, 200
 
     def create_order(self, request, cart):
         try:

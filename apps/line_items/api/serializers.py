@@ -4,7 +4,7 @@ from apps.line_items.models import LineItem
 
 class LineItemSerializer:
     def get_line_items_dict(self, line_items: List[LineItem]):
-        context = []
+        line_items_dict = []
         for line_item in line_items:
             line_item_dict = {
                 "id": line_item.id,
@@ -21,5 +21,5 @@ class LineItemSerializer:
                     "image": line_item.product.images.first()
                 },
             }
-            context.append(line_item_dict)
-        return context, 200
+            line_items_dict.append(line_item_dict)
+        return line_items_dict

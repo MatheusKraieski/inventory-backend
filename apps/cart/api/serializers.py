@@ -1,11 +1,14 @@
-from rest_framework import serializers
-from apps.cart import models
 from apps.line_items.api.serializers import LineItemSerializer
 
 
-class CartSerializer(serializers.ModelSerializer):
-    line_items = LineItemSerializer(many=True, read_only=True)
+class CartSerializer:
+    line_item_serializer = LineItemSerializer()
 
-    class Meta:
-        model = models.Cart
-        fields = ['id', 'line_items']
+    def get_cart_dict(self, cart):
+        context = {
+            "cart": {
+                "id": cart.id,
+                "line_items": self.line_item_serializer.get_line_items_dict(cart.line_items.all())
+            }
+        }
+        return context, 200

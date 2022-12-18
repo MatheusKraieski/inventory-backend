@@ -1,24 +1,25 @@
-from rest_framework import serializers
+from typing import List
 from apps.line_items.models import LineItem
 
 
-class LineItemSerializer():
-    def get_line_item (self):
-        line_items = LineItem.objects.all()
+class LineItemSerializer:
+    def get_line_items_dict(self, line_items: List[LineItem]):
         context = []
         for line_item in line_items:
             line_item_dict = {
+                "id": line_item.id,
                 "quantity": line_item.quantity,
-                "cart": line_item.cart,
-                "order": line_item.order,
-                "product": line_item.product.values()
+                "total_price": line_item.total_price(),
+                "product": {
+                    "id": line_item.product.id,
+                    "name": line_item.product.name,
+                    "price": line_item.product.price,
+                    "cost": line_item.product.cost,
+                    "inventory_number": line_item.product.inventory_number,
+                    "minimum_amount": line_item.product.minimum_amount,
+                    "favorite": line_item.product.favorite,
+                    "image": line_item.product.images.first()
+                },
             }
             context.append(line_item_dict)
         return context, 200
-
-    class Meta:
-        model = LineItem
-        fields = ['id', 'quantity', 'product', 'total_price']
-
-    def get_total_price(self, obj: LineItem):
-        return obj.total_price()

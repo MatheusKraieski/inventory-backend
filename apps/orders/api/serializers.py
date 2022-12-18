@@ -1,7 +1,10 @@
+from apps.line_items.api.serializers import LineItemSerializer
 from apps.orders.models import Order
 
 
 class OrderSerializer:
+    line_item_serializer = LineItemSerializer()
+
     def get_orders(self):
         orders = Order.objects.all()
         context = []
@@ -9,7 +12,7 @@ class OrderSerializer:
             order_dict = {
                 "ref": order.ref,
                 "payment_type": order.payment_type,
-                "line_items": order.line_items.values()
+                "line_items": self.line_item_serializer.get_line_items_dict(order.line_items.all())
             }
             context.append(order_dict)
         return context, 200

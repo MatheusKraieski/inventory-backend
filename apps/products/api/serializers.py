@@ -1,9 +1,7 @@
-from rest_framework import serializers
-from apps.products import models
 from apps.products.models import Product
 
+
 class ProductSerializer:
-    
     def create_product(self, request):
         try:
             Product.objects.create(
@@ -17,7 +15,7 @@ class ProductSerializer:
                 image_product=request.data.get('image_product'),
                 favorite=request.data.get('favorite'),
             )
-            return {'detail': 'produto criado com sucesso.'}, 201
+            return {'detail': 'Product created successfully.'}, 201
         except Exception as e:
             print(e)
-            return {'detail': 'produto não pode ser criado.'}, 400    
+            return {'detail': 'Product could not be created.'}, 400

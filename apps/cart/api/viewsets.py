@@ -32,3 +32,15 @@ class AddLineItemToCart(APIView):
             LineItem.objects.create(product=request.data.get('product'), quantity=quantity, cart=cart)
         serializer = CartSerializer(cart, context={'request': request})
         return Response({"cart": serializer.data}, 200)
+
+
+class UpdateLineItemQuantity(APIView):
+    def put(self, request, line_item_uuid):
+        line_item = LineItem.objects.get(pk=request.data.get('line_item_id'))
+        if request.data.get('type') == 'update':
+            line_item.quantity = int(request.data.get('quantity'))
+        elif request.data.get('type') == 'increase':
+            line_item.quantity += 1
+        elif request.data.get('type') == 'decrease':
+            if line_item.quantity > 1:
+                line_item.quantity -= 1

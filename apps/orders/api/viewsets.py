@@ -12,6 +12,6 @@ class Orders(APIView):
 
     def post(self, request):
         serializer = OrderSerializer()
-        message, status = serializer.create_order(request, cart)
         cart = Cart.objects.get(pk=request.data.get('cart_id'))
+        message, status = serializer.create_order(request, cart)
         return Response(message, status)

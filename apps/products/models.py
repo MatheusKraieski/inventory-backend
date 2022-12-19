@@ -10,6 +10,7 @@ class Product(models.Model):
     inventory_number = models.DecimalField(decimal_places=2, max_digits=12)
     minimum_amount = models.DecimalField(decimal_places=2, max_digits=12)
     favorite = models.BooleanField(default=False)
+    search_field = models.TextField('Pesquisar', null=True, blank=True)
 
 
     class Meta:
@@ -30,3 +31,4 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return 'imagem'
+        

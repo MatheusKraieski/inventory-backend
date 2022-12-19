@@ -25,4 +25,4 @@ class ProductList(APIView):
         serializer = ProductSerializer()
            
         response, status = serializer.create_product(request)
-        return Response(response, status)        
+        return Response(response, status)

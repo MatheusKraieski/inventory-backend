@@ -26,12 +26,14 @@ class AddLineItemToCart(APIView):
             return Response({'detail': 'Product out of stock.'}), 400
 
         quantity = request.data.get("quantity")
+        price = request.data.get("price")
         try:
             line_item = LineItem.objects.get(product=product, cart=cart)
             line_item.quantity = quantity
+            line_item.price = price
             line_item.save()
         except LineItem.DoesNotExist:
-            LineItem.objects.create(product=product, quantity=quantity, cart=cart)
+            LineItem.objects.create(product=product, quantity=quantity, cart=cart, price=price)
 
         response, status = self.cart_serializer.get_cart_dict(cart)
         return Response(response, status)

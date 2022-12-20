@@ -18,6 +18,6 @@ class Cart(models.Model):
     def line_items_quantity(self):
         return sum([line_item.quantity for line_item in self.line_items.all()])
 
-    def total_products(self):
-        return sum([line_item.total_products() for line_item in self.line_items.all()])
+    def total_price(self):
+        return sum([line_item.total_price() for line_item in self.line_items.all()])
     

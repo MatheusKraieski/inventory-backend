@@ -9,11 +9,11 @@ class LineItemSerializer:
             line_item_dict = {
                 "id": line_item.id,
                 "quantity": line_item.quantity,
+                "price" : line_item.price,
                 "total_price": line_item.total_price(),
                 "product": {
                     "id": line_item.product.id,
                     "name": line_item.product.name,
-                    "price": line_item.product.price,
                     "cost": line_item.product.cost,
                     "inventory_number": line_item.product.inventory_number,
                     "minimum_amount": line_item.product.minimum_amount,

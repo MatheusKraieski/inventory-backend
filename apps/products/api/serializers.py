@@ -19,3 +19,17 @@ class ProductSerializer:
         except Exception as e:
             print(e)
             return {'detail': 'Product could not be created.'}, 400
+
+    def get_product(self, request, product_pk):
+        product = Product.objects.get(pk=product_pk)
+        product_dic = {
+                "name": product.name,
+                "price": product.price,
+                "category_id": product.category_id,
+                "cost": product.cost,
+                "promotion_price": product.promotion_price,
+                "inventory_number": product.inventory_number,
+                "image_product": product.image_product,
+                "favorite":product.favorite,
+        }
+        return {"detail": product_dic}, 200

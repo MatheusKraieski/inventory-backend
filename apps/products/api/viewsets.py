@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from apps.products.api.serializers import ProductSerializer
 
-
 @api_view(['GET'])
 def search_products(request):
     if request.GET.get('q'):
@@ -19,12 +18,7 @@ def search_products(request):
 class ProductList(APIView):
     def get(self, request):
         products = Product.objects.values()
-        return Response(products, 200)
-
-    def get(self, request, product_pk):
-        product = Product.objects.get(pk=product_pk)
-        serializer = ProductSerializer(product)
-        return Response(serializer.data)       
+        return Response(products, 200)     
 
     def post(self, request):    
         serializer = ProductSerializer()
@@ -32,8 +26,10 @@ class ProductList(APIView):
         response, status = serializer.create_product(request)
         return Response(response, status)
 
+
 class ProductDetail(APIView):
     def get(self, request, product_pk):
-        product = Product.objects.get(pk=product_pk)
-        serializer = ProductSerializer(product)
-        return Response(serializer.data)       
+        serializer = ProductSerializer()
+        
+        response, status = serializer.get_product(product_pk)
+        return Response(response, status)

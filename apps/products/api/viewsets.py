@@ -21,8 +21,19 @@ class ProductList(APIView):
         products = Product.objects.values()
         return Response(products, 200)
 
+    def get(self, request, product_pk):
+        product = Product.objects.get(pk=product_pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)       
+
     def post(self, request):    
         serializer = ProductSerializer()
            
         response, status = serializer.create_product(request)
         return Response(response, status)
+
+class ProductDetail(APIView):
+    def get(self, request, product_pk):
+        product = Product.objects.get(pk=product_pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)       

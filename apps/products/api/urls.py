@@ -4,5 +4,5 @@ from apps.products.api import viewsets
 
 urlpatterns = [
     path('products', viewsets.ProductList.as_view()),
-    path('products/<product_pk>', viewsets.ProductDetail),
+    path('products/<product_pk>', viewsets.ProductDetail.as_view()),
 ]

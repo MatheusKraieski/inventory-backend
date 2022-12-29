@@ -33,5 +33,7 @@ class ProductSerializer:
                 "cost": product.cost,
                 "inventory_number": product.inventory_number,
                 "favorite":product.favorite,
-        }
+                "images": product.images.values(),
+            } 
+        
         return {"detail": product_dic}, 200

@@ -25,9 +25,9 @@ class ProductImage(models.Model):
     image = models.ImageField('Imagem', upload_to='uploads/produtos', max_length=100, null=True, blank=True)
 
     class Meta:
-        verbose_name = 'Imagem'
+        verbose_name = 'image'
         verbose_name_plural = 'Imagens'
 
     def __str__(self):
-        return 'imagem'
+        return self.product
         

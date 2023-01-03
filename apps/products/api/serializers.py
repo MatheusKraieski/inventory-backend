@@ -11,10 +11,8 @@ class ProductSerializer:
         try:
             Product.objects.create(
                 name=request.data.get('name'),
-                price=request.data.get('price'),
                 category_id=request.data.get("category_id"),
                 cost=request.data.get('cost'),
-                promotion_price=request.data.get('promotion_price'),
                 inventory_number=request.data.get('inventory_number'),
                 minimum_amount=request.data.get('minimum_amount'),
                 image_product=request.data.get('image_product'),

@@ -28,8 +28,19 @@ class ProductList(APIView):
 
 
 class ProductDetail(APIView):
-    def get(self, request, product_pk):
+    def get(self, request, product):
         serializer = ProductSerializer()
         
-        response, status = serializer.get_product(product_pk)
+        response, status = serializer.get_product(product)
         return Response(response, status)
+
+    def put(self, product):
+        serializer = ProductSerializer()
+        
+        response, status = serializer.update_product(product)
+        if status != 200:
+            return Response(response, status)
+
+        response, status = serializer.build_product_dict(response)
+        return Response(response, status)
+   

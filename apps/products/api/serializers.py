@@ -15,13 +15,12 @@ class ProductSerializer:
                 cost=request.data.get('cost'),
                 inventory_number=request.data.get('inventory_number'),
                 minimum_amount=request.data.get('minimum_amount'),
-                image_product=request.data.get('image_product'),
                 favorite=request.data.get('favorite'),
             )
-            return {'detail': 'Product created successfully.'}, 201
+            return {'Product created successfully.'}, 201
         except Exception as e:
             print(e)
-            return {'detail': 'Product could not be created.'}, 400
+            return {'Product could not be created.'}, 400
 
     def get_product(self, product_pk):
         product = Product.objects.get(pk=product_pk)
@@ -34,4 +33,26 @@ class ProductSerializer:
                 "images": product.images.values(),
             } 
         
-        return {"detail": product_dic}, 200
+        return product_dic, 200
+
+    
+    def update_product(self, product, request):
+        product.name = request.data.get("name", product.name)
+        product.category = request.data.get("category", product.category)
+        product.cost = request.data.get("cost", product.cost)
+        product.inventory_number = request.data.get("inventory_number", product.inventory_number)
+        product.favorite = request.data.get("favorite", product.favorite)
+        product.inventory_number = request.data.get("inventory_number", product.inventory_number)
+               
+        return product.save(), 200
+
+    def build_product_dict(product):
+        product_dict = {
+            "name": product.name,
+            "category": product.category_id,
+            "cost": product.cost,
+            "inventory_number": product.inventory_number,
+            "favorite":product.favorite,
+            "images": product.images.values(),
+        }         
+        return product_dict, 200

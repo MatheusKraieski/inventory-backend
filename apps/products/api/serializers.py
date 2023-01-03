@@ -43,8 +43,9 @@ class ProductSerializer:
         product.inventory_number = request.data.get("inventory_number", product.inventory_number)
         product.favorite = request.data.get("favorite", product.favorite)
         product.inventory_number = request.data.get("inventory_number", product.inventory_number)
-               
-        return product.save(), 200
+
+        product.save()   
+        return product, 200
 
     def build_product_dict(product):
         product_dict = {

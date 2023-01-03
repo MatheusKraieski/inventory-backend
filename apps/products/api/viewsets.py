@@ -28,13 +28,14 @@ class ProductList(APIView):
 
 
 class ProductDetail(APIView):
-    def get(self, request, product):
+    def get(self, request, product_pk):
         serializer = ProductSerializer()
         
-        response, status = serializer.get_product(product)
+        response, status = serializer.get_product(product_pk)
         return Response(response, status)
 
-    def put(self, product):
+    def put(self, product, product_pk):
+        product = Product.objects.get(product_pk)
         serializer = ProductSerializer()
         
         response, status = serializer.update_product(product)

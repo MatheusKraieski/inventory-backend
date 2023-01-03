@@ -38,11 +38,11 @@ class ProductSerializer:
     
     def update_product(self, product, request):
         product.name = request.data.get("name", product.name)
-        product.category = request.data.get("category", product.category)
+        product.category_id = request.data.get("category_id", product.category)
         product.cost = request.data.get("cost", product.cost)
         product.inventory_number = request.data.get("inventory_number", product.inventory_number)
+        product.minimum_amount = request.data.get("minimum_amount", product.minimum_amount)
         product.favorite = request.data.get("favorite", product.favorite)
-        product.inventory_number = request.data.get("inventory_number", product.inventory_number)
 
         product.save()   
         return product, 200
@@ -50,10 +50,11 @@ class ProductSerializer:
     def build_product_dict(self, product):
         product_dict = {
             "name": product.name,
-            "category": product.category_id,
+            "category_id": product.category_id,
             "cost": product.cost,
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,
+            "minimum_amount":product.minimum_amount,
             "images": product.images.values(),
         }         
         return product_dict, 200

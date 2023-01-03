@@ -47,7 +47,7 @@ class ProductSerializer:
         product.save()   
         return product, 200
 
-    def build_product_dict(product):
+    def build_product_dict(self, product):
         product_dict = {
             "name": product.name,
             "category": product.category_id,

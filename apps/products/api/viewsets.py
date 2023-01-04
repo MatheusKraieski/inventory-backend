@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from apps.products.api.serializers import ProductSerializer
+from rest_framework.parsers import MultiPartParser
 
 @api_view(['GET'])
 def search_products(request):
@@ -16,6 +17,7 @@ def search_products(request):
     return Response(products)
 
 class ProductList(APIView):
+    parser_classes = (MultiPartParser,) 
     def get(self, request):
         products = Product.objects.values()
         return Response(products, 200)     
@@ -25,6 +27,7 @@ class ProductList(APIView):
            
         response, status = serializer.create_product(request)
         return Response(response, status)
+       
 
 
 class ProductDetail(APIView):

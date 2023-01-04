@@ -9,7 +9,7 @@ class ProductImageSerializer:
 class ProductSerializer:
     def create_product(self, request):
         try:
-            Product.objects.create(
+            product = Product.objects.create(
                 name=request.data.get('name'),
                 category_id=request.data.get("category_id"),
                 cost=request.data.get('cost'),
@@ -17,10 +17,17 @@ class ProductSerializer:
                 minimum_amount=request.data.get('minimum_amount'),
                 favorite=request.data.get('favorite'),
             )
+            for image in images:
+                ProductImage.objects.create(
+                    product = product,
+                    image = images,
+                )
+
             return {'Product created successfully.'}, 201
         except Exception as e:
             print(e)
             return {'Product could not be created.'}, 400
+    
 
     def get_product(self, product_pk):
         product = Product.objects.get(pk=product_pk)

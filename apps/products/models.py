@@ -29,5 +29,5 @@ class ProductImage(models.Model):
         verbose_name_plural = 'Imagens'
 
     def __str__(self):
-        return self.product
+        return self.product.name
         

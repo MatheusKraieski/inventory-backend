@@ -17,10 +17,10 @@ class ProductSerializer:
                 minimum_amount=request.data.get('minimum_amount'),
                 favorite=request.data.get('favorite'),
             )
-            for image in images:
+            for image in request.data.getlist('images'):
                 ProductImage.objects.create(
-                    product = product,
-                    image = images,
+                    product=product,
+                    image=image,
                 )
 
             return {'Product created successfully.'}, 201

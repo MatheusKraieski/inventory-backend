@@ -31,15 +31,16 @@ class ProductSerializer:
 
     def get_product(self, product_pk):
         product = Product.objects.get(pk=product_pk)
+        image = ProductImage.objects.get()
         product_dic = {
                 "name": product.name,
                 "category": product.category_id,
                 "cost": product.cost,
                 "inventory_number": product.inventory_number,
                 "favorite":product.favorite,
-                "images": product.images.values(),
+                "image":image.image
             } 
-        
+
         return product_dic, 200
 
     
@@ -54,7 +55,7 @@ class ProductSerializer:
         product.save()   
         return product, 200
 
-    def build_product_dict(self, product):
+    def build_product_dict(self, product, image):
         product_dict = {
             "name": product.name,
             "category_id": product.category_id,
@@ -62,6 +63,5 @@ class ProductSerializer:
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,
             "minimum_amount":product.minimum_amount,
-            "images": product.images.values(),
         }         
         return product_dict, 200

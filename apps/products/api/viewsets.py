@@ -1,8 +1,8 @@
-from apps.products.models import Product
+from apps.products.models import Product, ProductImage
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from apps.products.api.serializers import ProductSerializer
+from apps.products.api.serializers import ProductSerializer, ProductImageSerializer
 from rest_framework.parsers import MultiPartParser
 
 @api_view(['GET'])

@@ -7,7 +7,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     cost = models.DecimalField(max_digits=12, decimal_places=2,)
     inventory_number = models.DecimalField(decimal_places=2, max_digits=12)
-    minimum_amount = models.DecimalField(decimal_places=2, max_digits=12)
     favorite = models.BooleanField(default=False)
     search_field = models.TextField('Pesquisar', null=True, blank=True)
 

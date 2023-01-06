@@ -14,7 +14,6 @@ class ProductSerializer:
                 category_id=request.data.get("category_id"),
                 cost=request.data.get('cost'),
                 inventory_number=request.data.get('inventory_number'),
-                minimum_amount=request.data.get('minimum_amount'),
                 favorite=request.data.get('favorite'),
             )
             for image in request.data.getlist('images'):
@@ -49,8 +48,7 @@ class ProductSerializer:
         product.category_id = request.data.get("category_id", product.category)
         product.cost = request.data.get("cost", product.cost)
         product.inventory_number = request.data.get("inventory_number", product.inventory_number)
-        product.minimum_amount = request.data.get("minimum_amount", product.minimum_amount)
-        product.favorite = request.data.get("favorite", product.favorite)
+        product.favorite = eval(request.data.get("favorite", product.favorite).capitalize())
 
         product.save()   
         return product, 200
@@ -62,6 +60,5 @@ class ProductSerializer:
             "cost": product.cost,
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,
-            "minimum_amount":product.minimum_amount,
         }         
         return product_dict, 200

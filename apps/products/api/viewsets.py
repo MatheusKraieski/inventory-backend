@@ -47,4 +47,3 @@ class ProductDetail(APIView):
 
         response, status = serializer.build_product_dict(response)
         return Response(response, status)
-   

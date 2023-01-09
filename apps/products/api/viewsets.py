@@ -37,6 +37,13 @@ class ProductDetail(APIView):
         response, status = serializer.get_product(product_pk)
         return Response(response, status)
 
+    def get(self, request, product_pk):
+        serializer = ProductSerializer()
+        product = Product.objects.all(product)
+        
+        response, status = serializer.get_all_products_dict(product_pk)
+        return Response(response, status)    
+
     def put(self, request, product_pk):
         product = Product.objects.get(pk=product_pk)
         serializer = ProductSerializer()

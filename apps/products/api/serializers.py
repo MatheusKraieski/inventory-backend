@@ -63,11 +63,10 @@ class ProductSerializer:
         }         
         return product_dict, 200
 
-    def get_all_products_dict(self, request):
-        product = Product.objects.all(product)
-        products_list_dict = []
+    # def get_all_products_dict(self, request):
+    #     products_list_dict = []
 
-        for product in request.data.getlist('products'):
-                Product.objects.all()
+    #     for product in request.data.getlist('products'):
+    #             Product.objects.all()
        
-        return products_list_dict, 200
+    #     return products_list_dict, 200

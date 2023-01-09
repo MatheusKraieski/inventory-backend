@@ -52,7 +52,7 @@ class ProductSerializer:
         product.save()   
         return product, 200
 
-    def build_product_dict(self, product, image):
+    def build_product_dict(self, product):
         product_dict = {
             "name": product.name,
             "category_id": product.category_id,
@@ -63,10 +63,11 @@ class ProductSerializer:
         }         
         return product_dict, 200
 
-    # def get_all_products_dict(self, request):
-    #     products_list_dict = []
-
-    #     for product in request.data.getlist('products'):
-    #             Product.objects.all()
+    def get_all_products_dict(self, products):
+        product_list_dict = []
+        
+        for product in products:
+            product_dict, status = self.build_product_dict(product)
+            product_list_dict.append(product_dict)            
        
-    #     return products_list_dict, 200
+        return product_list_dict, 200

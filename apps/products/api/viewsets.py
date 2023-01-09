@@ -5,27 +5,21 @@ from rest_framework.decorators import api_view
 from apps.products.api.serializers import ProductSerializer, ProductImageSerializer
 from rest_framework.parsers import MultiPartParser
 
-@api_view(['GET'])
-def search_products(request):
-    if request.GET.get('q'):
-        products = Product.objects\
-            .filter(search_field__icontains=request.GET.get('q'))
-    else:
-        products = Product.objects\
-            .filter()
-        serializer = ProductSerializer(products, many=True)
-    return Response(products)
-
 class ProductList(APIView):
+    serializer = ProductSerializer()
     parser_classes = (MultiPartParser,) 
     def get(self, request):
-        products = Product.objects.values()
-        return Response(products, 200)     
+        if request.GET.get('q'):
+            products = Product.objects.filter(search_text=request.GET.get('q'))
+        else:
+            products = Product.objects.all()
+
+        response, status = self.serializer.get_all_products_dict(products)   
+        return Response(response, status)
 
     def post(self, request):    
-        serializer = ProductSerializer()
-           
-        response, status = serializer.create_product(request)
+                   
+        response, status = self.serializer.create_product(request)
         return Response(response, status)
        
 
@@ -36,13 +30,6 @@ class ProductDetail(APIView):
         
         response, status = serializer.get_product(product_pk)
         return Response(response, status)
-
-    def get(self, request, product_pk):
-        serializer = ProductSerializer()
-        product = Product.objects.all(product)
-        
-        response, status = serializer.get_all_products_dict(product_pk)
-        return Response(response, status)    
 
     def put(self, request, product_pk):
         product = Product.objects.get(pk=product_pk)

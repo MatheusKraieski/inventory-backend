@@ -32,7 +32,7 @@ class ProductSerializer:
         product = Product.objects.get(pk=product_pk)
         product_dic = {
             "name": product.name,
-            "category_id": product.category_id,
+            "category": product.category_id,
             "cost": product.cost,
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,

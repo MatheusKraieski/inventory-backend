@@ -54,6 +54,7 @@ class ProductSerializer:
 
     def build_product_dict(self, product):
         product_dict = {
+            "product_id":product.pk,
             "name": product.name,
             "category_id": product.category_id,
             "cost": product.cost,

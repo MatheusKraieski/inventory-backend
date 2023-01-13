@@ -45,7 +45,6 @@ class ProductSerializer:
     def update_product(self, product, request):
         try:
             product.name = request.data.get("name", product.name),
-            product.category_id = request.data.get("category_id", product.category),
             product.cost = request.data.get("cost", product.cost),
             product.inventory_number = request.data.get("inventory_number", product.inventory_number),
             product.favorite = eval(request.data.get('favorite').capitalize()),

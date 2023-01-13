@@ -1,4 +1,6 @@
 from apps.products.models import Product, ProductImage
+from distutils.util import strtobool
+from apps.categories.models import  Category
 
 
 class ProductImageSerializer:
@@ -26,7 +28,7 @@ class ProductSerializer:
         except Exception as e:
             print(e)
             return {'Product could not be created.'}, 400
-    
+
 
     def get_product(self, product_pk):
         product = Product.objects.get(pk=product_pk)
@@ -38,23 +40,25 @@ class ProductSerializer:
             "favorite":product.favorite,
             "image":product.images.values(),
         }
-       
+
         return product_dic, 200
 
-    
+
     def update_product(self, product, request):
         try:
-            product.name = request.data.get("name", product.name),
-            product.cost = request.data.get("cost", product.cost),
-            product.inventory_number = request.data.get("inventory_number", product.inventory_number),
-            product.favorite = eval(request.data.get('favorite').capitalize()),
+            category = Category.objects.get(pk=request.data.get("category_id"))
+            product.name = request.data.get("name", product.name)
+            product.category = category
+            product.cost = float(request.data.get("cost", product.cost))
+            product.inventory_number = float(request.data.get("inventory_number", product.inventory_number))
+            product.favorite = bool(strtobool(request.data.get('favorite').capitalize()))
 
-            product.save()   
+            product.save()
             return product, 200
         except Exception as e:
             print(e)
-            return {'Product could not be changed.'}, 400   
-        
+            return {'Product could not be changed.'}, 400
+
 
     def build_product_dict(self, product):
         product_dict = {
@@ -64,14 +68,14 @@ class ProductSerializer:
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,
             "image":product.images.values(),
-        }         
+        }
         return product_dict, 200
 
     def get_all_products_dict(self, products):
         product_list_dict = []
-        
+
         for product in products:
             product_dict, status = self.build_product_dict(product)
-            product_list_dict.append(product_dict)            
-       
+            product_list_dict.append(product_dict)
+
         return product_list_dict, 200

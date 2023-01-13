@@ -25,6 +25,8 @@ class ProductList(APIView):
 
 
 class ProductDetail(APIView):
+    parser_classes = (MultiPartParser,) 
+    
     def get(self, request, product_pk):
         serializer = ProductSerializer()
         

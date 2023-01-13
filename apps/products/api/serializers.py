@@ -43,20 +43,24 @@ class ProductSerializer:
 
     
     def update_product(self, product, request):
-        product.name = request.data.get("name", product.name),
-        product.category_id = request.data.get("category_id", product.category),
-        product.cost = request.data.get("cost", product.cost),
-        product.inventory_number = request.data.get("inventory_number", product.inventory_number),
-        product.favorite = eval(request.data.get("favorite", product.favorite).capitalize()),
+        try:
+            product.name = request.data.get("name", product.name),
+            product.category_id = request.data.get("category_id", product.category),
+            product.cost = request.data.get("cost", product.cost),
+            product.inventory_number = request.data.get("inventory_number", product.inventory_number),
+            product.favorite = eval(request.data.get('favorite').capitalize()),
 
-        product.save()   
-        return product, 200
+            product.save()   
+            return product, 200
+        except Exception as e:
+            print(e)
+            return {'Product could not be changed.'}, 400   
+        
 
     def build_product_dict(self, product):
         product_dict = {
-            "product_id":product.pk,
             "name": product.name,
-            "category_id": product.category_id,
+            "id": product.category_id,
             "cost": product.cost,
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,

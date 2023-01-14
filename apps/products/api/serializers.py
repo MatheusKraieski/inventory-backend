@@ -18,11 +18,9 @@ class ProductSerializer:
                 inventory_number=request.data.get('inventory_number'),
                 favorite=eval(request.data.get('favorite').capitalize()),
             )
-            for image in request.data.getlist('images'):
-                ProductImage.objects.create(
-                    product=product,
-                    image=image,
-                )
+
+            self.add_images_to_product(product, request.data.getlist('images'))
+
 
             return {'Product created successfully.'}, 201
         except Exception as e:
@@ -46,12 +44,15 @@ class ProductSerializer:
 
     def update_product(self, product, request):
         try:
-            category = Category.objects.get(pk=request.data.get("category_id"))
+            category = Category.objects.get(pk=int(request.data.get("category_id", product.category.pk)))
             product.name = request.data.get("name", product.name)
             product.category = category
             product.cost = float(request.data.get("cost", product.cost))
             product.inventory_number = float(request.data.get("inventory_number", product.inventory_number))
-            product.favorite = bool(strtobool(request.data.get('favorite').capitalize()))
+            product.favorite = bool(strtobool(request.data.get('favorite', "false").capitalize()))
+            product.images.all().delete()
+
+            self.add_images_to_product(product, request.data.getlist("images"))
 
             product.save()
             return product, 200
@@ -62,8 +63,9 @@ class ProductSerializer:
 
     def build_product_dict(self, product):
         product_dict = {
+            "id": product.pk,
             "name": product.name,
-            "id": product.category_id,
+            "category_id": product.category_id,
             "cost": product.cost,
             "inventory_number": product.inventory_number,
             "favorite":product.favorite,
@@ -79,3 +81,11 @@ class ProductSerializer:
             product_list_dict.append(product_dict)
 
         return product_list_dict, 200
+
+    @staticmethod
+    def add_images_to_product(product, images):
+        for image in images:
+            ProductImage.objects.create(
+                product=product,
+                image=image,
+            )

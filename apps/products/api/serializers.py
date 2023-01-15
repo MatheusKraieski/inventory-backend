@@ -49,7 +49,7 @@ class ProductSerializer:
             return {"error": "Product could not be changed."}, 400
 
     def build_product_dict(self, product):
-        category = product.category
+        product_categories = product.category.get_ancestors(include_self=True).reverse()
         product_dict = {
             "id": product.pk,
             "name": product.name,
@@ -58,10 +58,11 @@ class ProductSerializer:
             "inventory_number": product.inventory_number,
             "favorite": product.favorite,
             "image": product.images.values(),
-            "category": self.build_category_dict(category)
+            "categories": []
         }
 
-        product_dict["category"] = self.get_subcategories(category, product_dict.get("category"))
+        for category in product_categories:
+            product_dict["categories"].append(self.build_category_dict(category))
 
         return product_dict
 
@@ -69,7 +70,6 @@ class ProductSerializer:
         return {
             "id": category.pk,
             "name": category.name,
-            "category": {},
         }
 
     def get_subcategories(self, category: Category, category_dict):

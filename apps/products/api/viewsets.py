@@ -38,3 +38,8 @@ class ProductDetail(APIView):
         product = get_object_or_404(Product, pk=product_pk)
         response, status = self.serializer.update_product(product, request)
         return Response(response, status)
+
+    def delete(self, request, product_pk):
+        product = get_object_or_404(Product, pk=product_pk)
+        response, status = self.serializer.delete_product(product)
+        return Response(response, status)

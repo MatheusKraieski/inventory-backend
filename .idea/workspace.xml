@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c93e0c53-108e-4dad-a7e9-d215dad15785" name="Changes" comment="chore: update migrates">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="8e77ae0c-74fe-492b-9c9f-c93b7bad097b" name="Changes" comment="chore: fix shit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cart/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/categories/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/clients/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/line_items/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/line_items/migrations/0002_lineitem_price.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/orders/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/products/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/products/migrations/0002_productimage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/products/migrations/0003_product_search_field.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/products/migrations/0004_remove_product_price.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/products/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/products/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/products/api/viewsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/products/api/viewsets.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +23,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1673738215" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1673738214" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,9 +115,9 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="inventory.settings" />
+        <env name="DJANGO_SETTINGS_MODULE" value="core.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\guilherme.bordignon\OneDrive - CIAL Dun &amp; Bradstreet\repos\inventory-backend\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -117,6 +133,10 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django Server.inventory" />
+      <item itemvalue="Python.lol" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.lol" />
@@ -212,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670125904504</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="chore: fix shit">
+      <created>1673740745303</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673740745304</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,9 +267,10 @@
     <MESSAGE value="chore: delete runtime.txt" />
     <MESSAGE value="chore: add sqlite db" />
     <MESSAGE value="chore: update migrates" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: update migrates" />
+    <MESSAGE value="chore: fix shit" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: fix shit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/inventory_backend$lol.coverage" NAME="lol Coverage Results" MODIFIED="1670124990508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/inventory_backend$lol.coverage" NAME="lol Coverage Results" MODIFIED="1670946611162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

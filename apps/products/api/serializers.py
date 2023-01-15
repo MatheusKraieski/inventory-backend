@@ -82,3 +82,12 @@ class ProductSerializer:
                 product=product,
                 image=image,
             )
+    def delete_product(self, product):
+        try:
+            if transaction.atomic():
+                product.images.all().delete()
+                product.delete()
+            return {"detail": "Product was deleted successfully"}, 201
+        except Exception as err:
+            print(err)
+            return {"error": "Product could not be deleted"}, 400

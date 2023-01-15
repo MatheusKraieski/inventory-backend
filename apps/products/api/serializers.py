@@ -48,9 +48,8 @@ class ProductSerializer:
             print(e)
             return {"error": "Product could not be changed."}, 400
 
-    @staticmethod
-    def build_product_dict(product):
-        category = product.category.get_root()
+    def build_product_dict(self, product):
+        category = product.category
         product_dict = {
             "id": product.pk,
             "name": product.name,
@@ -59,12 +58,27 @@ class ProductSerializer:
             "inventory_number": product.inventory_number,
             "favorite": product.favorite,
             "image": product.images.values(),
-            "category": {
-                "id": category.pk,
-                "name": category.name,
-            }
+            "category": self.build_category_dict(category)
         }
+
+        product_dict["category"] = self.get_subcategories(category, product_dict.get("category"))
+
         return product_dict
+
+    def build_category_dict(self, category):
+        return {
+            "id": category.pk,
+            "name": category.name,
+            "category": {},
+        }
+
+    def get_subcategories(self, category: Category, category_dict):
+        if category.get_ancestors():
+            parent_category = category.parent
+            category_dict["category"] = self.build_category_dict(parent_category)
+            if parent_category.get_ancestors():
+                category_dict["category"] = self.get_subcategories(parent_category, category_dict.get("category"))
+        return category_dict
 
     def get_all_products_dict(self, products):
         product_list_dict = []

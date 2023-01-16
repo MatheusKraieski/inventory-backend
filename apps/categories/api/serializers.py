@@ -38,6 +38,8 @@ class NewCategory:
         category_dict = self.build_category_dict(category)
         return category_dict, 200        
 
+        
+
     def build_category_dict(self, category):
         product_categories = category.get_ancestors(include_self=True).reverse()
         category_dict = {
@@ -45,6 +47,15 @@ class NewCategory:
             "name": category.name,
         }
         return category_dict
+
+    def get_all_categories_dict(self, categories):
+        category_list_dict = []
+
+        for category in categories:
+            category_dict = self.build_category_dict(category)
+            category_list_dict.append(category_dict)
+
+        return category_list_dict, 200    
         
     def get_subcategories(self, category: Category, category_dict):
         if category.get_ancestors():

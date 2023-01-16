@@ -4,13 +4,15 @@ from apps.categories.models import Category
 from apps.categories.api.serializers import NewCategory, CategoriesSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser
 from django.shortcuts import get_object_or_404
 
 class CategoryView(APIView):
+    serializer = NewCategory()
     def get(self, request):
-        categories = Category.objects.values()
-        return Response(categories, 200)
+        categories = Category.objects.all()     
+
+        response, status = self.serializer.get_all_categories_dict(categories)
+        return Response(response, status)
 
     def post(self, request):    
         serializer = NewCategory()

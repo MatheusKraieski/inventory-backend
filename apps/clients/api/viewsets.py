@@ -5,7 +5,7 @@ from apps.clients.models import Client
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from apps.line_items.api.serializers import LineItemSerializer
+from apps.clients.api.serializers import ClientSerializer
 
 
 class ClientList(APIView):
@@ -14,9 +14,9 @@ class ClientList(APIView):
         return Response(clients, 200)
 
     def post(self, request):    
-        serializer = LineItemSerializer()
+        serializer = ClientSerializer()
            
-        response, status = serializer.add_item(request)
+        response, status = serializer.add_client(request)
         return Response(response, status)
 
     

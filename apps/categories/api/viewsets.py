@@ -30,3 +30,8 @@ class CategoryDetail(APIView):
             category = get_object_or_404(Category, pk=category_pk)
             response, status = self.serializer.get_category(category)
             return Response(response, status)
+
+    def delete(self, request, category_pk):
+        product = get_object_or_404(Category, pk=category_pk)
+        response, status = self.serializer.delete_category(product)
+        return Response(response, status)

@@ -53,3 +53,12 @@ class NewCategory:
             if parent_category.get_ancestors():
                 category_dict["category"] = self.get_subcategories(parent_category, category_dict.get("category"))
         return category_dict
+
+    def delete_category(self, category):
+        try:
+            if transaction.atomic():
+                category.delete()
+            return {"detail": "Product was deleted successfully"}, 201
+        except Exception as err:
+            print(err)
+            return {"error": "Product could not be deleted"}, 400    

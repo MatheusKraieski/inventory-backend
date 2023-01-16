@@ -26,7 +26,6 @@ class NewCategory:
     def update_category(self, category, request):
         try:
             with transaction.atomic():
-                category = Category.objects.get(pk=int(request.data.get("category_id", category.pk)))
                 category.name = request.data.get("name", category.name)
                 
                 category.save()

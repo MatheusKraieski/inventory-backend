@@ -50,5 +50,13 @@ class ClientSerializer(serializers.ModelSerializer):
             "first_phone": client.first_phone,
             "second_phone": client.second_phone,
         }
+        return product_dict
 
-        return product_dict    
+    def delete_client(self, client):
+        try:
+            if transaction.atomic():
+                client.delete()
+            return {"detail": "Product was deleted successfully"}, 201
+        except Exception as err:
+            print(err)
+            return {"error": "Product could not be deleted"}, 400    

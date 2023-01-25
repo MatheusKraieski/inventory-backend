@@ -1,10 +1,6 @@
-from rest_framework import viewsets
-from apps.clients.api import serializers
-from apps.clients import models
 from apps.clients.models import Client
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
 from apps.clients.api.serializers import ClientSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.parsers import MultiPartParser
@@ -31,12 +27,12 @@ class ClientDetail(APIView):
         response, status = self.serializer.update_client(client, request)
         return Response(response, status)
 
-    def get(self, client_pk):
+    def get(self, request, client_pk):
         client = get_object_or_404(Client, pk=client_pk)
         response, status = self.serializer.get_client(client)
         return Response(response, status)
 
-    def delete(self, client_pk):
+    def delete(self, request, client_pk):
         client = get_object_or_404(Client, pk=client_pk)
         response, status = self.serializer.delete_client(client)
         return Response(response, status)

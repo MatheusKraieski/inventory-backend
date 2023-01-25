@@ -2,6 +2,7 @@ from rest_framework import serializers
 from apps.clients.models import Client
 from django.db import transaction
 
+
 class ClientSerializer(serializers.ModelSerializer):
     def add_client(self, request):
         try:
@@ -38,7 +39,6 @@ class ClientSerializer(serializers.ModelSerializer):
     def get_client(self, client):
         client_dict = self.build_client_dict(client)
         return client_dict, 200
-
 
     def build_client_dict(self, client):
         product_dict = {

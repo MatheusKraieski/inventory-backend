@@ -15,7 +15,7 @@ class NewCategory:
         try:
             category = Category.objects.create(
                 name=request.data.get('name'),
-                parent=request.data.get("parent"),
+                parent_id=request.data.get("parent_id")
             )
 
             return {'Category created successfully.'}, 201
@@ -45,6 +45,7 @@ class NewCategory:
         category_dict = {
             "id": category.pk,
             "name": category.name,
+            # "parent": product_categories
         }
         return category_dict
 

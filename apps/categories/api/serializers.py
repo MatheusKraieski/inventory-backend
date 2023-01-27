@@ -11,9 +11,10 @@ class CategoriesSerializer(serializers.ModelSerializer):
 
 
 class NewCategory:
-    def create_category(self, request):
+    @staticmethod
+    def create_category(request):
         try:
-            category = Category.objects.create(
+            Category.objects.create(
                 name=request.data.get('name'),
                 parent_id=request.data.get("parent_id")
             )
@@ -23,13 +24,12 @@ class NewCategory:
             print(e)
             return {'Product could not be created.'}, 400
 
-    def update_category(self, category, request):
+    @staticmethod
+    def update_category(category, request):
         try:
-            with transaction.atomic():
-                category.name = request.data.get("name", category.name)
-                
-                category.save()
-                return {"detail": "Category was updated successfully."}, 201
+            category.name = request.data.get("name", category.name)
+            category.save()
+            return {"detail": "Category was updated successfully."}, 201
         except Exception as e:
             print(e)
             return {"error": "Category could not be changed."}, 400
@@ -37,8 +37,6 @@ class NewCategory:
     def get_category(self, category):
         category_dict = self.build_category_dict(category)
         return category_dict, 200        
-
-        
 
     def build_category_dict(self, category):
         product_categories = category.get_ancestors(include_self=True).reverse()
@@ -68,9 +66,8 @@ class NewCategory:
 
     def delete_category(self, category):
         try:
-            if transaction.atomic():
-                category.delete()
+            category.delete()
             return {"detail": "Product was deleted successfully"}, 201
         except Exception as err:
             print(err)
-            return {"error": "Product could not be deleted"}, 400    
+            return {"error": "Product could not be deleted"}, 400

@@ -96,7 +96,9 @@ class ProductSerializer:
                 product=product,
                 image=image,
             )
-    def delete_product(self, product):
+
+    @staticmethod
+    def delete_product(product):
         try:
             if transaction.atomic():
                 product.images.all().delete()
